@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eef1ed">
+  <title>Песок · Практикум по управлению роботом</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="brand-mark" aria-hidden="true">п.</span><span>ПЕСОК<span class="brand-sub">робототехнический практикум</span></span></a>
+    <nav><a href="guide.html">Справочник ESP32Client ↗</a><span class="browser-badge">Всё в браузере</span></nav>
+  </header>
+  <main>
+    <section class="intro"><div><p class="eyebrow">Управление беспилотными робототехническими устройствами</p><h1>От алгоритма<br>к движению.</h1><p class="intro-copy">Пишите Python, наблюдайте за роботом и проверяйте решение<br class="desktop-break"> в повторяемых экспериментах. Установка программ не нужна.</p></div><div class="intro-note"><span class="tiny-label">УЧЕБНЫЙ СТЕНД / 01</span><strong>Измерить.<br>Управлять.<br>Проверить.</strong><span>Пять задач · один интерфейс</span></div></section>
+    <section class="workspace" aria-label="Рабочая область">
+      <aside class="lessons-panel"><p class="tiny-label">ВЫБЕРИТЕ ЗАДАНИЕ</p><div id="lessons" class="lessons"></div><div class="aside-note"><span class="status-dot"></span> Учебная модель<p>Геометрия и параметры открыты. Результат в модели не заменяет испытание на физическом роботе.</p></div></aside>
+      <div class="work-main">
+        <section class="task-card"><div class="task-title-row"><div><p id="task-topic" class="eyebrow"></p><h2 id="task-title">Загрузка заданий…</h2></div><a class="text-link" href="guide.html#quickstart">Как начать ↗</a></div><p id="task-description"></p><div id="criteria" class="criteria"></div><details><summary>Подсказка к заданию</summary><p id="task-hint"></p></details></section>
+        <section class="runbar"><div class="run-settings"><label>Вариант <input id="seed" type="number" min="1" max="99999" value="1"></label><label class="check-label"><input id="disturbances" type="checkbox"> Шум и возмущения</label></div><div class="run-actions"><button id="stop" type="button" class="button subtle" disabled>Остановить</button><button id="run" type="button" class="button secondary">▶ Запустить</button><button id="check" type="button" class="button primary">Проверить 5 вариантов ↗</button></div></section>
+        <p id="runtime-status" role="status" aria-live="polite">Python загрузится при первом запуске. Нужен доступ в интернет.</p>
+        <div class="lab-grid">
+          <section class="editor-panel"><div class="panel-heading"><span><span class="file-dot"></span> solution.py</span><button id="example-code" class="text-button" type="button">Пример API</button><button id="reset-code" class="text-button" type="button">Заготовка</button></div><label class="sr-only" for="code">Python-код решения</label><textarea id="code" spellcheck="false" autocapitalize="off" autocomplete="off" autocorrect="off"></textarea><div class="editor-footer"><span id="save-state">Код сохраняется в этом браузере</span><span>Ctrl / ⌘ + Enter — запуск</span></div></section>
+          <section class="simulation-panel"><div class="panel-heading"><span>Виртуальный полигон</span><span id="simulation-time" class="mono">t = 0.00 с</span></div><canvas id="world" width="800" height="460" aria-label="Поле, робот, лучи дальномеров и траектория"></canvas><div class="legend"><span><i class="legend-robot"></i> робот</span><span><i class="legend-ray"></i> дальномеры</span><span><i class="legend-path"></i> траектория</span><label>Просмотр <select id="playback-speed"><option value="1">1×</option><option value="3" selected>3×</option><option value="8">8×</option></select></label></div><div class="telemetry" id="telemetry"></div><canvas id="chart" width="800" height="150" aria-label="График расстояния laser и заданного PWM"></canvas><p class="chart-caption">Расстояние laser, см <span>·</span> Средний заданный PWM <span>·</span> Пунктир — 30 см</p></section>
+        </div>
+        <section id="results" class="results-panel"><div class="panel-heading"><span>Результат эксперимента</span><button id="copy-report" type="button" class="text-button" disabled>Копировать отчёт с кодом</button></div><div id="result-body" class="empty-state"><span>01 → 02 → 03</span><p>Выберите задачу, допишите алгоритм и запустите проверку.</p></div><details id="protocol-details" hidden><summary>Команды и подтверждения ESP32</summary><pre id="protocol-log"></pre></details><pre id="console" hidden></pre></section>
+      </div>
+    </section>
+  </main>
+  <footer><span>Песок / лаборатория алгоритмов</span><span>Самопроверка · контрольный прогон выполняет преподаватель</span><a href="guide.html#teacher">Преподавателю ↗</a></footer>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
